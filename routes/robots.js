@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var fetch = require('node.fetch')
+var fetch = require('node-fetch');
 
 router.get('/robots', function(req, res, next) {
   var url = "https://southernct-443-robots-api.herokuapp.com/api/robots"

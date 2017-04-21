@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var robots = require('./routes/robots');
-
+var fetch = require('node-fetch');
 var app = express();
 
 // view engine setup
