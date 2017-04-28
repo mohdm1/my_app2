@@ -44,4 +44,11 @@ router.get('/robots/:id', function(req, res, next) {
     })
 });
 
+/* New Page */
+router.get('/robots/new', function(req, res, next) { // handle GET requests to the robots/new URL path
+  res.render('robots/new', { // render the robots/new.ejs view
+    title: "New Robot"
+  })
+})
+
 module.exports = router;
