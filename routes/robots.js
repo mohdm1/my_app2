@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
 
+/* List Robots */
 router.get('/robots', function(req, res, next) {
   var url = "https://southernct-443-robots-api.herokuapp.com/api/robots"
 
@@ -19,8 +20,14 @@ router.get('/robots', function(req, res, next) {
     })
 });
 
-/* Show Robot */
+/* New Page */
+router.get('/robots/new', function(req, res, next) { // handle GET requests to the robots/new URL path
+  res.render('robots/new', { // render the robots/new.ejs view
+    title: "New Robot"
+  })
+});
 
+/* Robots Show Page */
 router.get('/robots/:id', function(req, res, next) {
   var robotId = req.params.id;
   var errorMessage = `OOPS - COULDN'T FIND ROBOT ${robotId}`
@@ -44,11 +51,5 @@ router.get('/robots/:id', function(req, res, next) {
     })
 });
 
-/* New Page */
-router.get('/robots/new', function(req, res, next) { // handle GET requests to the robots/new URL path
-  res.render('robots/new', { // render the robots/new.ejs view
-    title: "New Robot"
-  })
-})
 
 module.exports = router;
