@@ -9,7 +9,7 @@
 
     <a href="/robots"><%= "<< back" %></a>
 
-    <form id="new-robot-form" action="https://southernct-443-robots-api.herokuapp.com/api/robots/" method="POST">
+    <form id="edit-robot-form" action="https://southernct-443-robots-api.herokuapp.com/api/robots/:id/" method="PUT">
       <label for="name">Name</label>
       <input id="name" name="name" type="text" placeholder="My Robot">
       <br>
@@ -38,7 +38,7 @@
       function submitForm(event) {
         event.preventDefault() // important to leave this here because it prevents duplicate form submission!
 
-        var requestUrl = "https://southernct-443-robots-api.herokuapp.com/api/robots/"
+        var requestUrl = "https://southernct-443-robots-api.herokuapp.com/api/robots/:id/"
 
         var formData = {name: inputName.value, description: inputDescription.value, in_stock: inputQuantityInStock.value} // read input values
         console.log("POSTING", formData, "TO", requestUrl)
@@ -54,8 +54,11 @@
           .fail(function(xhr, textStatus, errorThrown){
             alert("OOPS THERE WAS AN ERROR") // FURTHER EXPLORATION: send a more specific error message
           })
+    <!-- <ul>
+      <% robots.forEach(function(robot){ %>
+        <li><%= robot._id %> - <%= robot.name %> - <%= robot.description %></li>
+      <% }); %>
+    </ul> -->
 
-      }
-    </script>
-  </body>
-</html>
+
+    </html>

@@ -27,6 +27,18 @@ router.get('/robots/new', function(req, res, next) { // handle GET requests to t
   })
 });
 
+/* Robots Edit PAGE */
+
+router.put("/robots/edit", function(req,res,next){
+ var robotId = req.params.id;
+ var errorMessage = "oops - couldn't find robot ${robotId}"
+  res.render('robots/edit', {
+    title: "Edit Robot"
+  })
+});
+
+/* Delete Robot Function */
+
 /* Robots Show Page */
 router.get('/robots/:id', function(req, res, next) {
   var robotId = req.params.id;
